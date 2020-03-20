@@ -1,0 +1,2 @@
+alert tcp any any -> $HOME_NET 3399 (flow:established; content:"login|Initial"; flowbits:set,bfd1; flowbits:noalert;)
+alert tcp any any -> $HOME_NET 3399 (msg:"bot founded"; flowbits:isset,bfd1; flow:established; pcre:""; sid:1000001;)
